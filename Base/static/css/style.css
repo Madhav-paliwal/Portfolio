@@ -62,17 +62,23 @@ nav a:hover {
     color: cyan;
 }
 /* HERO */
-.hero {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    min-height: 100vh;
-}
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 40px 20px;
+    }
 
-.hero h1 {
-    font-size: 48px;
-}
+    .hero img {
+        margin-top: 20px;
+        width: 200px;
+    }
 
+    .hero h1 {
+        font-size: 30px;
+    }
+}
 .hero span {
     background: linear-gradient(to right, cyan, blue);
     -webkit-background-clip: text;
