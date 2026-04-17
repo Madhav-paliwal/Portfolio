@@ -7,11 +7,13 @@ Django==5.2.8
 djangorestframework==3.16.1
 filelock==3.19.1
 Flask==3.1.1
+gunicorn==25.3.0
 itsdangerous==2.2.0
 Jinja2==3.1.6
 joblib==1.4.2
 MarkupSafe==3.0.2
 numpy==2.2.4
+packaging==26.1
 pandas==2.2.3
 pdfkit==1.0.0
 platformdirs==4.4.0
