@@ -9,119 +9,193 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+<style>
+  html { scroll-behavior: smooth; }
+</style>
+
 </head>
 
-<body class="font-[Poppins]">
+<body class="font-[Poppins] bg-gradient-to-br from-gray-50 to-gray-200">
 
 <!-- NAVBAR -->
-<nav class="bg-white shadow-md fixed w-full z-50">
+<nav class="bg-white/70 backdrop-blur-lg shadow fixed w-full z-50">
   <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-
     <h2 class="text-xl font-bold">Madhav Paliwal</h2>
 
-    <!-- BUTTON -->
-    <button id="menu-btn" class="md:hidden text-2xl focus:outline-none">
-      ☰
+    <button id="menu-btn" class="md:hidden text-2xl">
+      <span id="menu-icon">☰</span>
     </button>
 
-    <!-- MENU -->
     <ul id="menu"
-        class="hidden md:flex flex-col md:flex-row gap-4 md:gap-6 
-               absolute md:static top-14 left-0 w-full md:w-auto 
-               bg-white md:bg-transparent py-4 md:py-0 text-center">
+        class="hidden md:flex flex-col md:flex-row gap-6 absolute md:static top-14 left-0 w-full md:w-auto 
+        bg-white md:bg-transparent py-6 md:py-0 text-center transition-all duration-300">
 
-      <li><a href="#hero">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-
+      <li><a href="#hero" class="hover:text-blue-500">Home</a></li>
+      <li><a href="#about" class="hover:text-blue-500">About</a></li>
+      <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
+      <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+      <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
     </ul>
   </div>
 </nav>
 
 <!-- HERO -->
-<section id="hero" class="max-w-6xl mx-auto px-4 py-10 pt-20">
-  <div class="flex flex-col md:flex-row items-center gap-8">
+<section id="hero" class="max-w-6xl mx-auto px-4 pt-28 pb-20">
+  <div class="flex flex-col md:flex-row items-center gap-12">
 
     <div class="w-full md:w-1/2 text-center md:text-left">
-      <h1 class="text-2xl md:text-4xl font-bold">
-        Hi, I'm <span class="text-blue-500">Madhav Paliwal</span>
+      <h1 class="text-4xl md:text-5xl font-bold leading-tight">
+        Hi, I'm <span class="text-blue-600">Madhav Paliwal</span>
       </h1>
-      <p class="mt-3 text-gray-600">
-        Backend Developer | Django | REST API
+
+      <p class="mt-4 text-gray-700 text-lg">
+        Backend Developer crafting scalable Django & REST API solutions
       </p>
 
-      <a href="https://www.linkedin.com/in/madhav-paliwal-546888308"
-         target="_blank"
-         class="inline-block mt-5 bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">
-         Hire Me
-      </a>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+
+        <!-- Primary -->
+        <a href="https://www.linkedin.com/in/madhav-paliwal-546888308"
+           target="_blank"
+           class="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-lg hover:scale-105 hover:bg-blue-700 transition">
+          Hire Me
+        </a>
+
+        <!-- Secondary -->
+        <a href="#projects"
+           class="bg-white border border-gray-300 px-6 py-3 rounded-lg shadow hover:scale-105 hover:bg-gray-100 transition">
+          View Work
+        </a>
+
+        <!-- Resume -->
+        <a href="{% static 'files/resume.pdf' %}"
+           target="_blank"
+           class="bg-black text-white px-6 py-3 rounded-lg shadow hover:scale-105 hover:bg-gray-800 transition">
+          Resume
+        </a>
+
+      </div>
     </div>
 
     <div class="w-full md:w-1/2 flex justify-center">
       <img src="{% static 'images/madhav_paliwal_photo.jpg' %}"
-           class="w-40 md:w-64 rounded-full">
+           class="w-52 md:w-72 rounded-full shadow-xl hover:scale-110 transition duration-300">
     </div>
 
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" class="bg-gray-100 py-10 px-4">
-  <div class="max-w-4xl mx-auto text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">About Me</h2>
-    <p class="text-gray-600 mb-3">
-      I am a backend developer specializing in Django and REST APIs.
+
+<!-- about -->
+ <section id="about" class="pt-24 pb-16 px-4 bg-white">
+  <div class="max-w-5xl mx-auto text-center">
+
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+
+    <p class="text-gray-600 mb-4">
+      I am a backend developer specializing in Django and REST APIs, focused on building scalable and efficient web applications.
     </p>
-    <p class="text-gray-600 mb-3">
-      Built projects like marketplace and expense tracker.
+
+    <p class="text-gray-600 mb-4">
+      I have hands-on experience developing real-world projects like a multi-vendor marketplace and an expense tracking system.
+      I enjoy solving complex problems and writing clean, maintainable code.
     </p>
-    <p class="text-gray-600">
-      Looking for opportunities to grow.
+
+    <p class="text-gray-600 mb-10">
+      Currently, I am looking for opportunities where I can contribute, learn, and grow as a professional developer.
     </p>
+
+    <!-- HIGHLIGHTS -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-gray-100 p-5 rounded-lg shadow">
+        <h3 class="font-semibold text-lg">2+ Projects</h3>
+        <p class="text-sm text-gray-500">Real-world applications</p>
+      </div>
+
+      <div class="bg-gray-100 p-5 rounded-lg shadow">
+        <h3 class="font-semibold text-lg">Backend Focus</h3>
+        <p class="text-sm text-gray-500">Django & REST APIs</p>
+      </div>
+
+      <div class="bg-gray-100 p-5 rounded-lg shadow">
+        <h3 class="font-semibold text-lg">Database</h3>
+        <p class="text-sm text-gray-500">MySQL & Data Handling</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="py-10 px-4">
+<section id="skills" class="py-16 px-4">
   <div class="max-w-6xl mx-auto text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-6">Skills</h2>
+    <h2 class="text-3xl font-bold mb-10">Skills</h2>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-      <div class="bg-gray-200 p-3 rounded">Django</div>
-      <div class="bg-gray-200 p-3 rounded">Python</div>
-      <div class="bg-gray-200 p-3 rounded">REST API</div>
-      <div class="bg-gray-200 p-3 rounded">MySQL</div>
-      <div class="bg-gray-200 p-3 rounded">HTML</div>
-      <div class="bg-gray-200 p-3 rounded">CSS</div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div class="bg-white p-5 rounded-xl shadow hover:scale-105 transition">Django</div>
+      <div class="bg-white p-5 rounded-xl shadow hover:scale-105 transition">Python</div>
+      <div class="bg-white p-5 rounded-xl shadow hover:scale-105 transition">REST API</div>
+      <div class="bg-white p-5 rounded-xl shadow hover:scale-105 transition">MySQL</div>
+      <div class="bg-white p-5 rounded-xl shadow hover:scale-105 transition">HTML</div>
+      <div class="bg-white p-5 rounded-xl shadow hover:scale-105 transition">CSS</div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="bg-gray-100 py-10 px-4">
+<section id="projects" class="py-20 px-4">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-2xl md:text-3xl font-bold text-center mb-6">Projects</h2>
+    <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
 
-    <div class="grid md:grid-cols-2 gap-6">
+    <div class="grid md:grid-cols-2 gap-10">
 
-      <div class="bg-white p-5 rounded shadow">
-        <h3 class="text-xl font-semibold mb-2">Multi Vendor Marketplace</h3>
-        <p class="text-gray-600 mb-3">
-          Django e-commerce platform with vendor system.
-        </p>
-        <a href="https://github.com/Madhav-paliwal/E-commerce-site"
-           target="_blank"
-           class="text-blue-500">View Project</a>
+      <!-- PROJECT CARD -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+        
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3">Multi Vendor Marketplace</h3>
+          <p class="text-gray-600 mb-5">
+            Django-based marketplace with vendor system, product management, and REST APIs.
+          </p>
+
+          <div class="flex gap-4">
+            <a href="https://github.com/Madhav-paliwal/E-commerce-site"
+               target="_blank"
+               class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+               GitHub
+            </a>
+
+            <a href="#"
+               class="border px-4 py-2 rounded hover:bg-gray-100">
+               Live Demo
+            </a>
+          </div>
+        </div>
+
       </div>
 
-      <div class="bg-white p-5 rounded shadow">
-        <h3 class="text-xl font-semibold mb-2">Expense Tracker</h3>
-        <p class="text-gray-600 mb-3">
-          Track daily expenses with database.
-        </p>
-        <a href="#" class="text-blue-500">View Project</a>
+      <!-- PROJECT 2 -->
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition">
+        
+        <div class="p-6">
+          <h3 class="text-xl font-semibold mb-3">Expense Tracker</h3>
+          <p class="text-gray-600 mb-5">
+            Track daily expenses with categorized spending and clean UI.
+          </p>
+
+          <div class="flex gap-4">
+            <a href="#"
+               class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+               GitHub
+            </a>
+
+            <a href="#"
+               class="border px-4 py-2 rounded hover:bg-gray-100">
+               Live Demo
+            </a>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -129,20 +203,16 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-10 px-4">
-  <div class="max-w-lg mx-auto text-center">
-    <h2 class="text-2xl md:text-3xl font-bold mb-4">Contact Me</h2>
+<section id="contact" class="py-20 px-4">
+  <div class="max-w-lg mx-auto text-center bg-white p-8 rounded-xl shadow-lg">
+    <h2 class="text-3xl font-bold mb-6">Contact Me</h2>
 
-    {% if success %}
-    <p class="text-green-500">Message sent successfully!</p>
-    {% endif %}
-
-    <form method="POST" action="#contact" class="flex flex-col gap-3">
+    <form method="POST" class="flex flex-col gap-4">
       {% csrf_token %}
-      <input type="text" name="name" placeholder="Your Name" required class="border p-2 rounded">
-      <input type="email" name="email" placeholder="Your Email" required class="border p-2 rounded">
-      <textarea name="message" placeholder="Your Message" required class="border p-2 rounded"></textarea>
-      <button type="submit" class="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+      <input type="text" placeholder="Your Name" required class="border p-3 rounded">
+      <input type="email" placeholder="Your Email" required class="border p-3 rounded">
+      <textarea placeholder="Your Message" required class="border p-3 rounded"></textarea>
+      <button class="bg-blue-600 text-white py-3 rounded hover:bg-blue-700">
         Send Message
       </button>
     </form>
@@ -150,11 +220,41 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-black text-white text-center py-5">
+<footer class="bg-black text-white text-center py-6">
   <p>© 2026 Madhav Paliwal</p>
-  <div class="mt-2 flex justify-center gap-4">
-    <a href="https://github.com/Madhav-paliwal">GitHub</a>
-    <a href="https://www.linkedin.com/in/madhav-paliwal-546888308">LinkedIn</a>
+
+  <div class="mt-4 flex justify-center gap-6">
+
+    <!-- GitHub -->
+    <a href="https://github.com/Madhav-paliwal" target="_blank" class="hover:scale-110 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-white hover:fill-gray-400"
+           viewBox="0 0 24 24">
+        <path d="M12 0C5.37 0 0 5.37 0 12a12 12 0 008.21 11.38c.6.11.82-.26.82-.58
+        0-.29-.01-1.05-.02-2.06-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77
+        -1.09-.75.08-.74.08-.74 1.21.09 1.84 1.24 1.84 1.24 1.07 1.84 2.81 1.31 3.49 1
+        .11-.78.42-1.31.76-1.61-2.67-.3-5.47-1.34-5.47-5.93 0-1.31.47-2.38 1.24-3.22
+        -.13-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 016 0c2.28-1.55
+        3.29-1.23 3.29-1.23.66 1.66.25 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22
+        0 4.61-2.81 5.62-5.49 5.92.43.37.81 1.1.81 2.22
+        0 1.6-.01 2.89-.01 3.28 0 .32.21.69.82.57A12 12 0 0024 12c0-6.63-5.37-12-12-12z"/>
+      </svg>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/madhav-paliwal-546888308" target="_blank" class="hover:scale-110 transition">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 fill-white hover:fill-blue-400"
+           viewBox="0 0 24 24">
+        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85
+        0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.89
+        1.62-1.85 3.33-1.85 3.56 0 4.22 2.34 4.22 5.39v6.35zM5.34
+        7.43c-1.14 0-2.06-.93-2.06-2.06s.92-2.06 2.06-2.06
+        2.06.93 2.06 2.06-.92 2.06-2.06 2.06zM7.11
+        20.45H3.56V9h3.55v11.45zM22.23 0H1.77C.79 0 0
+        .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98
+        0 1.78-.77 1.78-1.72V1.72C24 .77 23.21 0 22.23 0z"/>
+      </svg>
+    </a>
+
   </div>
 </footer>
 
@@ -162,23 +262,20 @@
 <script>
   const btn = document.getElementById("menu-btn");
   const menu = document.getElementById("menu");
+  const icon = document.getElementById("menu-icon");
 
   let isOpen = false;
 
   btn.addEventListener("click", () => {
     isOpen = !isOpen;
-
-    if (isOpen) {
-      menu.classList.remove("hidden");
-    } else {
-      menu.classList.add("hidden");
-    }
+    menu.classList.toggle("hidden");
+    icon.innerHTML = isOpen ? "✖" : "☰";
   });
 
-  // Close menu when clicking link
   document.querySelectorAll("#menu a").forEach(link => {
     link.addEventListener("click", () => {
       menu.classList.add("hidden");
+      icon.innerHTML = "☰";
       isOpen = false;
     });
   });
